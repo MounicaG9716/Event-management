@@ -1,0 +1,19 @@
+
+<%= simple_form_for(@user_event) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :location %>
+    <%= f.input :start_date, placeholder: "yyyy-mm-dd" %>
+    <%= f.input :end_date, placeholder: "yyyy-mm-dd" %>
+    <%= f.input :duration %>
+    Do you want to save as draft or pubish?<br><%= f.select :status, [["Draft","D"], ["Publish", "P"]] %>
+  </div><br>
+
+  <div class="form-actions">
+    <%= f.button :submit, class:"button is-success" %>
+  </div>
+<% end %>

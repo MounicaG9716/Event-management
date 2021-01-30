@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+<h1 class="title is-5">Welcome, <%= current_user.name %>!</h1>
+<%= link_to "View Events", user_events_path, class:"button is-info" %>
+<% else %>
+
+<%= render "shared/login_form" %>
+<% end %>

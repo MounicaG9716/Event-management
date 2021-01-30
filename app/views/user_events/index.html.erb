@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing User Events</h1>
+
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Location</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Duration</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_events.each do |user_event| %>
+      <tr>
+        <td><%= user_event.name %></td>
+        <td><%= user_event.description %></td>
+        <td><%= user_event.location %></td>
+        <td><%= user_event.start_date %></td>
+        <td><%= user_event.end_date %></td>
+        <td><%= user_event.duration %></td>
+        <td><%= link_to 'Show', user_event, class:"button is-link"%></td>
+        <td><%= link_to 'Edit', edit_user_event_path(user_event), class:"button is-link" %></td>
+        <td><%= link_to 'Destroy', user_event, method: :delete, data: { confirm: 'Are you sure?' }, class:"button is-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User event', new_user_event_path, class:"button is-info" %>
