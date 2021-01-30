@@ -55,7 +55,6 @@ class UserEventsController < ApplicationController
   # DELETE /user_events/1
   # DELETE /user_events/1.json
   def destroy
-    debugger
     if @user_event.status == "D"
       @user_event.destroy
     else
